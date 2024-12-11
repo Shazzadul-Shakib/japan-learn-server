@@ -11,8 +11,16 @@ const registerSchema = z.object({
     .max(12, { message: 'Password must be less than 13 characters' }),
 });
 
+// Extract email and password types using .pick()
+const emailPasswordSchema = registerSchema.pick({
+  email: true,
+  password: true,
+});
+
+
 // --- auth types --- //
 export type TRegister = z.infer<typeof registerSchema>;
+export type TLogin = z.infer<typeof emailPasswordSchema>;
 
 // --- Extend the TRegister type to include the role --- //
 export type TRegisterWithRole = TRegister & {

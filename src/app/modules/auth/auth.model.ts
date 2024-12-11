@@ -9,4 +9,4 @@ const registerSchema = new Schema<TRegisterWithRole>({
   role: { type: String, default: 'user', required: true },
 });
 
-export const NewUser = model<TRegisterWithRole>('User', registerSchema);
+export const User = model<TRegisterWithRole>('User', registerSchema);
