@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 // --- validation schemas --- //
-const registerSchema = z.object({
+export const registerSchema = z.object({
   userName: z.string().min(1, { message: 'User name is required' }),
   email: z.string().email({ message: 'Invalid email address' }),
   profile: z.string().url({ message: 'Invalid URL format for profile' }),
