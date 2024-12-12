@@ -12,3 +12,4 @@ authRouter.post(
 );
 authRouter.post('/login', authController.loginUser);
 authRouter.post('/logout', authController.logoutUser);
+authRouter.get('/', authController.getAllUsers);

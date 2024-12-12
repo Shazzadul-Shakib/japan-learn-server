@@ -78,8 +78,28 @@ const loginUserService = async (payload: TLogin) => {
   };
 };
 
+// --- Get all users --- //
+const getAllUserService = async () => {
+  const result = await User.find(
+    {},
+    {
+      userName: 1,
+      email: 1,
+      role: 1,
+    },
+  );
+
+  return {
+    success: true,
+    status: 200,
+    message: 'Users retrived successfully',
+    data: result,
+  };
+};
+
 // --- Export all services --- //
 export const authServices = {
   registerService,
   loginUserService,
+  getAllUserService,
 };

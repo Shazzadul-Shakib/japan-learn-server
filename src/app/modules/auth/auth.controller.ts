@@ -45,9 +45,21 @@ const logoutUser = catchAsync(async (_, res) => {
   });
 });
 
+// --- get all users --- //
+const getAllUsers = catchAsync(async (req, res) => {
+  const result = await authServices.getAllUserService();
+
+  sendSuccessResponse(res, {
+    message: result.message,
+    status: result.status,
+    data: result.data,
+  });
+});
+
 // --- Export all controller --- //
 export const authController = {
   registerUser,
   loginUser,
   logoutUser,
+  getAllUsers,
 };
